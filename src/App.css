@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, "Noto Sans KR", sans-serif;
+  background: #f8fafc;
+  color: #111827;
+}
+
+input,
+textarea {
+  background: #ffffff;
+  color: #111827;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: #2563eb;
+}
