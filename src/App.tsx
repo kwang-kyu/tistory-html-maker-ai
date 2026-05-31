@@ -126,60 +126,10 @@ function App() {
     const externalLinks = getExternalLinks(cleanTitle);
     const externalLinkHTML = makeExternalLinkHTML(externalLinks);
     
-    let platformIntro = "";
-
-if (isTistory) {
-  platformIntro = "애드센스 수익형 티스토리 글 구조입니다.";
-} else if (isWordpress) {
-  platformIntro = "SEO 최적화 워드프레스 글 구조입니다.";
-} else if (isBlogger) {
-  platformIntro = "구글 검색 노출 중심 블로거 글 구조입니다.";
-} else {
-  platformIntro = "네이버 유입 중심 블로그 글 구조입니다.";
-}
+    
   if (isTistory) {
     let html = `
-   
-
-<div style="padding:16px; margin-bottom:24px; border-radius:12px; background:#f1f5f9;">
-  <strong>생성 플랫폼</strong><br/>
-  ${
-    isTistory
-      ? "티스토리 애드센스 최적화 구조입니다."
-      : isWordpress
-      ? "워드프레스 SEO 최적화 구조입니다."
-      : isBlogger
-      ? "블로거 구글 노출 최적화 구조입니다."
-      : "네이버 유입 최적화 구조입니다."
-  }
-</div>
-
-<div style="padding:16px; margin-bottom:24px; border-radius:12px; background:#fff7ed;">
-  <strong>수익화 전략</strong><br/>
-  ${
-    isTistory
-      ? "애드센스 광고 배치는 상단 1개, 본문 중간 1개, 하단 1개 구조를 추천합니다."
-      : isWordpress
-      ? "검색 노출을 위해 내부링크 3개 이상, 외부 참고 링크 2개 이상을 자연스럽게 배치하는 것을 추천합니다."
-      : isBlogger
-      ? "구글 검색 노출을 위해 롱테일 키워드와 관련 주제 연결 문단을 포함하는 것을 추천합니다."
-      : "네이버 유입을 위해 체류시간을 늘리는 경험형 문장과 공감·댓글 유도 문구를 포함하는 것을 추천합니다."
-  }
-</div>
-<h2>${cleanTitle}</h2>
-<p><strong>${platformIntro}</strong></p>
-
-<div style="background:#fff8dc;padding:12px;margin:20px 0;border-radius:8px;text-align:center;">
-<!-- 애드센스 광고 위치 ① -->
-</div>
-<p>
-${cleanTitle}에 대해 궁금해하는 분들이 많습니다. 특히 처음 정보를 찾아보는 분들은 어디서 확인해야 하는지, 어떤 기준을 봐야 하는지, 실제로 본인에게 해당되는 내용인지 판단하기 어려울 수 있습니다. 검색을 해보면 여러 글이 나오지만, 내용이 짧거나 기준이 오래된 경우도 있어 핵심만 보고 넘어가기에는 아쉬운 부분이 있습니다.
-</p>
-
-<p>
-이번 글에서는 ${cleanTitle}와 관련해 기본 개념부터 확인 방법, 주의사항, 참고 링크, 함께 보면 좋은 내부 글 자리까지 한 번에 정리해보겠습니다. 실제 신청이나 조회가 필요한 경우에는 반드시 공식 홈페이지와 관할 기관의 최신 안내를 함께 확인하는 것이 좋습니다.
-</p>
-
+ 
 <figure style="margin:32px 0; text-align:center;">
   <img src="이미지주소를-여기에-넣으세요-1" alt="${cleanTitle} 대표 이미지" style="max-width:100%; border-radius:14px;" />
   <figcaption style="font-size:14px; color:#666; margin-top:8px;">${cleanTitle} 관련 대표 이미지</figcaption>
