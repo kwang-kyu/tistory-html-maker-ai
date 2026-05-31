@@ -9,8 +9,9 @@ type LinkItem = {
 
 function App() {
   const [title, setTitle] = useState("");
-const [htmlResult, setHtmlResult] = useState("");
-const [platform, setPlatform] = useState("tistory");
+  const [htmlResult, setHtmlResult] = useState("");
+  const [platform, setPlatform] = useState("tistory");
+  const [toast, setToast] = useState("");
 
   const getExternalLinks = (inputTitle: string): LinkItem[] => {
     const t = inputTitle.toLowerCase();
@@ -436,9 +437,14 @@ ${cleanTitle}와 관련된 정보를 확인할 때 가장 조심해야 할 부�
     link.href = url;
     link.download = `${title || "blog-content"}.html`;
 
-    document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+
+    setToast("✅ HTML 다운로드 완료");
+
+    setTimeout(() => {
+  setToast("");
+}, 2000);
 
     URL.revokeObjectURL(url);
   }}
@@ -466,6 +472,24 @@ ${cleanTitle}와 관련된 정보를 확인할 때 가장 조심해야 할 부�
               )}
             </div>
           </aside>
+          {toast && (
+  <div
+    style={{
+      position: "fixed",
+      bottom: "20px",
+      right: "20px",
+      background: "#111827",
+      color: "#fff",
+      padding: "12px 18px",
+      borderRadius: "10px",
+      zIndex: 9999,
+      fontWeight: 600,
+      boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
+    }}
+  >
+    {toast}
+  </div>
+)}
         </main>
       </div>
     </div>
