@@ -117,6 +117,15 @@ function App() {
 </div>`;
   };
   const makeSeoHelperHTML = (inputTitle: string) => {
+    const titleIdeas = [
+      `${inputTitle} 총정리`,
+      `${inputTitle} 확인 방법과 주의사항`,
+      `${inputTitle} 쉽게 알아보기`,
+      `${inputTitle} 대상자와 신청 방법`,
+      `${inputTitle} 최신 정보 한눈에 정리`,
+    ];
+    
+    const seoScore = inputTitle.length >= 12 ? 92 : 78;
     const tags = [
       inputTitle,
       `${inputTitle} 방법`,
@@ -131,7 +140,14 @@ function App() {
     return `
   <div style="margin:34px 0; padding:22px; background:#f8fafc; border-radius:14px; border:1px solid #e5e7eb;">
     <h3 style="margin-top:0;">🔎 SEO 보조 정보</h3>
-  
+    <p><strong>SEO 예상 점수</strong><br/>
+${seoScore}점 / 100점
+</p>
+
+<p><strong>추천 제목 5개</strong></p>
+<ol style="line-height:1.9;">
+  ${titleIdeas.map((item) => `<li>${item}</li>`).join("")}
+</ol>
     <p><strong>검색 설명</strong><br/>
     ${inputTitle}에 대한 핵심 정보, 확인 방법, 주의사항, 참고 링크를 한눈에 정리했습니다.
     </p>
