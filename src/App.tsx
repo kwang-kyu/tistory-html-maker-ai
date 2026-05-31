@@ -263,6 +263,18 @@ if (isTistory) {
   }
 </div>
 
+<div style="padding:16px; margin-bottom:24px; border-radius:12px; background:#fff7ed;">
+  <strong>수익화 전략</strong><br/>
+  ${
+    isTistory
+      ? "애드센스 광고 배치는 상단 1개, 본문 중간 1개, 하단 1개 구조를 추천합니다."
+      : isWordpress
+      ? "검색 노출을 위해 내부링크 3개 이상, 외부 참고 링크 2개 이상을 자연스럽게 배치하는 것을 추천합니다."
+      : isBlogger
+      ? "구글 검색 노출을 위해 롱테일 키워드와 관련 주제 연결 문단을 포함하는 것을 추천합니다."
+      : "네이버 유입을 위해 체류시간을 늘리는 경험형 문장과 공감·댓글 유도 문구를 포함하는 것을 추천합니다."
+  }
+</div>
 <h2>${cleanTitle}</h2>
 <p><strong>${platformIntro}</strong></p>
 
