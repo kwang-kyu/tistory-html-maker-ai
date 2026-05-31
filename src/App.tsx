@@ -146,6 +146,21 @@ function App() {
         (inputTitle.includes("방법") ? 8 : 0) +
         (inputTitle.includes("확인") ? 8 : 0)
     );
+    
+    const adsenseScore = Math.min(
+      100,
+      Math.floor((seoScore + ctrScore) / 2)
+    );
+    
+    const seoGrade =
+      seoScore >= 90
+        ? "A"
+        : seoScore >= 80
+        ? "B"
+        : seoScore >= 70
+        ? "C"
+        : "D";
+    
     const tags = [
       inputTitle,
       `${inputTitle} 방법`,
@@ -165,6 +180,13 @@ ${seoScore}점 / 100점
 </p>
 <p><strong>CTR 예상 점수</strong><br/>
 ${ctrScore}점 / 100점
+</p>
+<p><strong>SEO 등급</strong><br/>
+${seoGrade} 등급
+</p>
+
+<p><strong>애드센스 수익성 점수</strong><br/>
+${adsenseScore}점 / 100점
 </p>
 <p><strong>추천 제목 10개</strong></p>
 <ol style="line-height:1.9;">
