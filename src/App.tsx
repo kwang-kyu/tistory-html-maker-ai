@@ -178,7 +178,13 @@ function App() {
       "정부지원",
       "블로그수익화",
     ];
-  
+    const internalLinks = [
+      `${inputTitle} 방법`,
+      `${inputTitle} 체크리스트`,
+      `${inputTitle} 신청방법`,
+      `${inputTitle} 최신정보`,
+      `${inputTitle} 총정리`,
+    ];  
     return `
   <div style="margin:34px 0; padding:22px; background:#f8fafc; border-radius:14px; border:1px solid #e5e7eb;">
     <h3 style="margin-top:0;">🔎 SEO 보조 정보</h3>
@@ -209,7 +215,10 @@ ${adsenseGrade} 등급
     <p><strong>추천 태그</strong><br/>
     ${tags.join(", ")}
     </p>
-  
+    <p><strong>추천 내부링크 5개</strong></p>
+  <ol style="line-height:1.9;">
+    ${internalLinks.map((item) => `<li>${item}</li>`).join("")}
+  </ol>
     <p><strong>FAQ 5개</strong></p>
     <p><strong>Q1. ${inputTitle}는 어디서 확인하나요?</strong><br/>
     A. 공식 홈페이지 또는 관련 기관 안내 페이지에서 확인하는 것이 가장 정확합니다.</p>
