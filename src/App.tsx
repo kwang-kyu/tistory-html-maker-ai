@@ -190,18 +190,30 @@ return `
   
   <div style="margin:34px 0; padding:22px; background:#f8fafc; border-radius:14px; border:1px solid #e5e7eb;">
     <h3 style="margin-top:0;">🔎 SEO 보조 정보</h3>
-    <p><strong>SEO 예상 점수</strong><br/>
-${seoScore}점 / 100점
-</p>
-<p><strong>CTR 예상 점수</strong><br/>
-${ctrScore}점 / 100점
-</p>
-<p><strong>SEO 등급</strong><br/>
-${seoGrade} 등급
-</p>
-<p><strong>포커스 키워드</strong><br/>
-${focusKeyword}
-</p>
+   <div style="display:grid; gap:10px; margin-top:14px;">
+
+  <div style="padding:12px; background:#ffffff; border-radius:10px;">
+    <strong>SEO 예상 점수</strong><br/>
+    ${seoScore}점 / 100점
+  </div>
+
+  <div style="padding:12px; background:#ffffff; border-radius:10px;">
+    <strong>SEO 등급</strong><br/>
+    ${seoGrade} 등급
+  </div>
+
+  <div style="padding:12px; background:#ffffff; border-radius:10px;">
+    <strong>포커스 키워드</strong><br/>
+    ${focusKeyword}
+  </div>
+
+  <div style="padding:12px; background:#ffffff; border-radius:10px;">
+    <strong>CTR 예상 점수</strong><br/>
+    ${ctrScore}점 / 100점
+  </div>
+
+</div>
+
 <p><strong>애드센스 수익성 점수</strong><br/>
 ${adsenseScore}점 / 100점
 </p>
