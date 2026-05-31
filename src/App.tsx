@@ -140,9 +140,30 @@ function App() {
     ${tags.join(", ")}
     </p>
   
-    <p><strong>이미지 프롬프트</strong><br/>
-    ${inputTitle}를 주제로 한 깔끔한 블로그 대표 이미지, 정보형 썸네일 스타일, 밝은 배경, 신뢰감 있는 구성, no text, high quality
-    </p>
+    <p><strong>FAQ 5개</strong></p>
+    <p><strong>Q1. ${inputTitle}는 어디서 확인하나요?</strong><br/>
+    A. 공식 홈페이지 또는 관련 기관 안내 페이지에서 확인하는 것이 가장 정확합니다.</p>
+  
+    <p><strong>Q2. 신청 조건은 어떻게 확인하나요?</strong><br/>
+    A. 대상 조건과 신청 기준은 공식 안내문을 기준으로 확인해야 합니다.</p>
+  
+    <p><strong>Q3. 처리 기간은 얼마나 걸리나요?</strong><br/>
+    A. 주제와 기관에 따라 다르며, 공식 안내에 따라 달라질 수 있습니다.</p>
+  
+    <p><strong>Q4. 준비해야 할 서류는 무엇인가요?</strong><br/>
+    A. 신분증, 신청서, 증빙서류, 접수번호 등이 필요할 수 있습니다.</p>
+  
+    <p><strong>Q5. 최신 정보는 어디서 확인하나요?</strong><br/>
+    A. 관련 기관 공지사항과 공식 홈페이지를 확인하는 것이 가장 안전합니다.</p>
+  
+    <p><strong>이미지 프롬프트 5종</strong></p>
+    <ol style="line-height:1.9;">
+      <li>${inputTitle} 대표 썸네일 이미지, professional blog thumbnail, clean background, high quality, no text</li>
+      <li>${inputTitle} 설명용 이미지, infographic style, information concept, clean layout, high quality</li>
+      <li>${inputTitle} 표 정리 이미지, data table concept, business infographic, clean design</li>
+      <li>${inputTitle} 주의사항 이미지, warning concept, information guide, modern illustration</li>
+      <li>${inputTitle} 마무리 이미지, success concept, professional blog cover, bright background, high quality</li>
+    </ol>
   </div>`;
   };
   const generateHTML = () => {
