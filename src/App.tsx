@@ -123,9 +123,29 @@ function App() {
       `${inputTitle} 쉽게 알아보기`,
       `${inputTitle} 대상자와 신청 방법`,
       `${inputTitle} 최신 정보 한눈에 정리`,
+      `${inputTitle} 조회 방법`,
+      `${inputTitle} 신청 조건`,
+      `${inputTitle} FAQ`,
+      `${inputTitle} 주의사항`,
+      `${inputTitle} 완벽 가이드`,
     ];
     
-    const seoScore = inputTitle.length >= 12 ? 92 : 78;
+    const seoScore = Math.min(
+      100,
+      70 +
+        Math.floor(inputTitle.length / 2) +
+        (inputTitle.includes("방법") ? 5 : 0) +
+        (inputTitle.includes("정리") ? 5 : 0) +
+        (inputTitle.includes("총정리") ? 5 : 0)
+    );
+    
+    const ctrScore = Math.min(
+      100,
+      65 +
+        (inputTitle.length > 10 ? 10 : 0) +
+        (inputTitle.includes("방법") ? 8 : 0) +
+        (inputTitle.includes("확인") ? 8 : 0)
+    );
     const tags = [
       inputTitle,
       `${inputTitle} 방법`,
@@ -143,8 +163,10 @@ function App() {
     <p><strong>SEO 예상 점수</strong><br/>
 ${seoScore}점 / 100점
 </p>
-
-<p><strong>추천 제목 5개</strong></p>
+<p><strong>CTR 예상 점수</strong><br/>
+${ctrScore}점 / 100점
+</p>
+<p><strong>추천 제목 10개</strong></p>
 <ol style="line-height:1.9;">
   ${titleIdeas.map((item) => `<li>${item}</li>`).join("")}
 </ol>
