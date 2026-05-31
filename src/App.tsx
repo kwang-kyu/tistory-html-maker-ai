@@ -363,10 +363,28 @@ SEO 최적화,
 - ${cleanTitle} 주의사항<br/>
 - ${cleanTitle} 자주 묻는 질문
 </p>
-  <h3>본문 구성</h3>
-  <p>${cleanTitle}에 대해 궁금해하는 분들을 위해 기본 개념부터 실제 확인 포인트까지 단계별로 정리했습니다.</p>
-  `;
+  <h3>자주 묻는 질문 (FAQ)</h3>
+
+<p>
+<strong>Q. ${cleanTitle}는 무엇인가요?</strong><br/>
+A. ${cleanTitle}의 기본 개념과 핵심 내용을 쉽게 이해할 수 있도록 정리한 정보입니다.
+</p>
+
+<p>
+<strong>Q. ${cleanTitle}는 어디서 확인하나요?</strong><br/>
+A. 관련 기관 공식 홈페이지 또는 공공기관 안내 페이지를 참고하는 것이 가장 정확합니다.
+</p>
+
+<p>
+<strong>Q. ${cleanTitle} 확인 시 주의할 점은?</strong><br/>
+A. 최신 기준과 신청 조건, 대상 여부를 반드시 함께 확인해야 합니다.
+</p>
+
+<p>
+<strong>Q. ${cleanTitle} 관련 추가 정보는 어디서 찾을 수 있나요?</strong><br/>
+A. 본문의 참고자료 및 내부링크를 활용하면 관련 내용을 더 자세히 확인할 수 있습니다.
   
+  `;
     setHtmlResult(wordpressHtml.trim());
     return;
   }
