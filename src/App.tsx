@@ -160,7 +160,14 @@ function App() {
         : seoScore >= 70
         ? "C"
         : "D";
-    
+        const adsenseGrade =
+        adsenseScore >= 90
+          ? "S"
+          : adsenseScore >= 80
+          ? "A"
+          : adsenseScore >= 70
+          ? "B"
+          : "C";
     const tags = [
       inputTitle,
       `${inputTitle} 방법`,
@@ -187,6 +194,9 @@ ${seoGrade} 등급
 
 <p><strong>애드센스 수익성 점수</strong><br/>
 ${adsenseScore}점 / 100점
+</p>
+<p><strong>애드센스 예상 등급</strong><br/>
+${adsenseGrade} 등급
 </p>
 <p><strong>추천 제목 10개</strong></p>
 <ol style="line-height:1.9;">
