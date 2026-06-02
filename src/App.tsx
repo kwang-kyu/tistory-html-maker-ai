@@ -632,29 +632,13 @@ ${
     
     <div style="background:#fff8dc;padding:12px;margin:20px 0;border-radius:8px;text-align:center;">
     <!-- 애드센스 광고 위치 ③ -->
-    </div>
-    
-    <div style="margin:40px 0; padding:20px; background:#f1f5f9; border-radius:12px;">
-      <h3 style="margin-top:0;">검색 설명</h3>
-      <p style="line-height:1.8;">
-        ${cleanTitle} 핵심 정보, 확인 방법, 대상 조건, 주의사항, 공식 참고 링크와 FAQ를 한 번에 정리한 정보성 가이드입니다.
-      </p>
-    
-      <h3>추천 태그</h3>
-      <p style="line-height:1.8;">
-        ${cleanTitle}, ${cleanTitle} 확인, ${cleanTitle} 방법, ${cleanTitle} 대상자, ${cleanTitle} 신청, 생활정보, 정부지원, 애드센스
-      </p>
-    
-      <h3>이미지 프롬프트</h3>
-      <p style="line-height:1.8;">
-        ${cleanTitle} concept, realistic korean lifestyle blog image, clean composition, professional informational blog thumbnail, bright natural light, high quality, 16:9
-      </p>
-    </div>
-    `;
-    
-      setHtmlResult(html.trim());
-      return;
-    }
+   </div>
+
+`;
+
+   setHtmlResult(html.trim());
+   return;
+}
   if (isWordpress) {
     const wordpressHtml = `
   <h2>${cleanTitle}</h2>
