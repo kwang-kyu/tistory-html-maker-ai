@@ -266,6 +266,93 @@ const topicTableRows = isTaxTopic
 <tr><td style="border:1px solid #ddd; padding:12px;">주의사항</td><td style="border:1px solid #ddd; padding:12px;">최신 정보 확인</td></tr>
 <tr><td style="border:1px solid #ddd; padding:12px;">FAQ</td><td style="border:1px solid #ddd; padding:12px;">본문 참고</td></tr>
 `;
+const topicFaqs = {
+  tax: [
+    {
+      question: `${cleanTitle}와 관련된 세금은 꼭 확인해야 하나요?`,
+      answer: "세금은 상황에 따라 달라질 수 있으므로 최신 기준을 확인하는 것이 좋습니다.",
+    },
+    {
+      question: "공식 자료는 어디서 확인하나요?",
+      answer: "국세청 또는 관련 정부기관 홈페이지에서 확인할 수 있습니다.",
+    },
+    {
+      question: "전문가 상담이 필요한가요?",
+      answer: "금액이 크거나 복잡한 경우 전문가 상담을 권장합니다.",
+    },
+  ],
+
+  travel: [
+    {
+      question: `${cleanTitle} 방문 시 가장 좋은 시기는 언제인가요?`,
+      answer: "계절별 특징을 고려하여 방문 계획을 세우는 것이 좋습니다.",
+    },
+    {
+      question: "가족여행으로 적합한가요?",
+      answer: "주차, 화장실, 편의시설 여부를 함께 확인하면 좋습니다.",
+    },
+    {
+      question: "주변 관광지도 있나요?",
+      answer: "인근 명소를 함께 방문하면 더욱 알찬 여행이 가능합니다.",
+    },
+  ],
+
+  realestate: [
+    {
+      question: "부동산 투자 시 가장 중요한 것은 무엇인가요?",
+      answer: "입지와 수요, 가격 흐름을 함께 확인해야 합니다.",
+    },
+    {
+      question: "실거래가는 어디서 확인하나요?",
+      answer: "국토교통부 실거래가 공개시스템을 활용할 수 있습니다.",
+    },
+    {
+      question: "초보 투자자도 가능한가요?",
+      answer: "충분한 조사와 자금 계획이 선행되어야 합니다.",
+    },
+  ],
+
+  sports: [
+    {
+      question: "최신 경기 일정은 어디서 확인하나요?",
+      answer: "공식 협회 및 대회 홈페이지에서 확인 가능합니다.",
+    },
+    {
+      question: "우승 전망은 정확한가요?",
+      answer: "스포츠는 변수들이 많아 참고자료로 활용하는 것이 좋습니다.",
+    },
+    {
+      question: "관전 포인트는 무엇인가요?",
+      answer: "주요 선수와 최근 경기력을 함께 보는 것이 좋습니다.",
+    },
+  ],
+
+  life: [
+    {
+      question: "생활정보는 얼마나 자주 업데이트되나요?",
+      answer: "정책이나 제도 변경 시 최신 정보를 확인하는 것이 좋습니다.",
+    },
+    {
+      question: "초보자도 쉽게 적용 가능한가요?",
+      answer: "단계별로 따라하면 어렵지 않게 활용 가능합니다.",
+    },
+    {
+      question: "추가 정보는 어디서 확인하나요?",
+      answer: "관련 기관 및 공식 홈페이지를 참고하면 좋습니다.",
+    },
+  ],
+};
+
+const selectedFaqs =
+  isTaxTopic
+    ? topicFaqs.tax
+    : isTravelTopic
+    ? topicFaqs.travel
+    : isRealEstateTopic
+    ? topicFaqs.realestate
+    : isSportsTopic
+    ? topicFaqs.sports
+    : topicFaqs.life;
 const topicIntro = isTaxTopic
   ? `${cleanTitle}는 납부 여부, 환급 가능성, 신고 내역, 지급 시기와 연결되는 주제입니다. 특히 세금 관련 정보는 개인별 신고 상황에 따라 결과가 달라질 수 있기 때문에 공식 조회 경로를 함께 확인하는 것이 중요합니다.`
   : isTravelTopic
