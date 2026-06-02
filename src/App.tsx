@@ -161,7 +161,15 @@ const isSportsTopic =
   topicText.includes("대표팀") ||
   topicText.includes("경기") ||
   topicText.includes("스포츠");
-
+  const seoTitle = isTaxTopic
+  ? `${cleanTitle} 조회 방법과 신청 대상 총정리`
+  : isTravelTopic
+  ? `${cleanTitle} 여행 가이드｜가는 방법과 사진 명소 총정리`
+  : isRealEstateTopic
+  ? `${cleanTitle} 부동산 입지 분석과 투자 체크포인트`
+  : isSportsTopic
+  ? `${cleanTitle} 일정과 전망 총정리｜관전 포인트 분석`
+  : `${cleanTitle} 핵심 정보와 확인 방법 총정리`;
 const topicCategory = isTaxTopic
   ? "세금·환급"
   : isTravelTopic
@@ -171,7 +179,59 @@ const topicCategory = isTaxTopic
   : isSportsTopic
   ? "스포츠"
   : "생활정보";
-
+  const topicToc = isTaxTopic
+  ? `
+<ol style="line-height:1.9;">
+  <li>환급 대상 확인</li>
+  <li>조회 방법</li>
+  <li>신청 절차</li>
+  <li>입금 시기</li>
+  <li>주의사항</li>
+  <li>FAQ</li>
+</ol>
+`
+  : isTravelTopic
+  ? `
+<ol style="line-height:1.9;">
+  <li>여행지 개요</li>
+  <li>가는 방법</li>
+  <li>주차 정보</li>
+  <li>사진 명소</li>
+  <li>주변 관광지</li>
+  <li>여행 팁</li>
+</ol>
+`
+  : isRealEstateTopic
+  ? `
+<ol style="line-height:1.9;">
+  <li>입지 분석</li>
+  <li>상권 분석</li>
+  <li>유동인구</li>
+  <li>투자 포인트</li>
+  <li>주의사항</li>
+  <li>FAQ</li>
+</ol>
+`
+  : isSportsTopic
+  ? `
+<ol style="line-height:1.9;">
+  <li>대회 개요</li>
+  <li>일정</li>
+  <li>참가팀</li>
+  <li>대한민국 전망</li>
+  <li>관전 포인트</li>
+  <li>FAQ</li>
+</ol>
+`
+  : `
+<ol style="line-height:1.9;">
+  <li>핵심 개요</li>
+  <li>주요 내용</li>
+  <li>확인 방법</li>
+  <li>주의사항</li>
+  <li>FAQ</li>
+</ol>
+`;
 const topicIntro = isTaxTopic
   ? `${cleanTitle}는 납부 여부, 환급 가능성, 신고 내역, 지급 시기와 연결되는 주제입니다. 특히 세금 관련 정보는 개인별 신고 상황에 따라 결과가 달라질 수 있기 때문에 공식 조회 경로를 함께 확인하는 것이 중요합니다.`
   : isTravelTopic
@@ -185,7 +245,7 @@ const topicIntro = isTaxTopic
  
     if (isTistory) {
       let html = `
-    <h2>${cleanTitle}</h2>
+    <h2>${seoTitle}</h2>
     
     <p>
     ${cleanTitle}에 대해 검색하는 분들은 대부분 빠르게 핵심 정보를 확인하고 싶어 합니다. 하지만 실제로 찾아보면 짧은 요약만 있거나, 공식 확인 경로와 주의사항이 함께 정리되지 않은 경우가 많습니다.
@@ -206,7 +266,7 @@ const topicIntro = isTaxTopic
     <!-- 애드센스 광고 위치 ① -->
     </div>
     
-    <h3 style="background:#f4efe8; padding:10px; border-radius:8px;">목차</h3>
+    ${topicToc}
     <ol style="line-height:1.9;">
       <li>${cleanTitle}를 먼저 알아야 하는 이유</li>
       <li>핵심 내용 한눈에 정리</li>
@@ -217,21 +277,101 @@ const topicIntro = isTaxTopic
       <li>마무리 및 참고 정보</li>
     </ol>
     
-    <h3 style="background:#f4efe8; padding:10px; border-radius:8px;">1. ${cleanTitle}를 먼저 알아야 하는 이유</h3>
+    <h3 style="background:#f4efe8; padding:10px; border-radius:8px;">
+    ${isTaxTopic
+    ? "1. 환급 대상 확인"
+    : isTravelTopic
+    ? "1. 여행지 개요"
+    : isRealEstateTopic
+    ? "1. 입지 분석"
+    : isSportsTopic
+    ? "1. 대회 개요"
+    : "1. 핵심 개요"}
+</h3>
     
-    <p>
-    ${cleanTitle}는 단순히 한 가지 정보만 확인한다고 끝나는 주제가 아닐 수 있습니다. 대상 조건, 신청 기간, 처리 일정, 필요 서류, 본인 인증 방식, 기관별 안내 기준 등이 서로 연결되어 있는 경우가 많기 때문입니다.
-    </p>
+${
+  isTaxTopic
+  ? `
+  <p>
+  ${cleanTitle}는 환급 대상 여부, 신고 내역, 납부 기록, 입금 시기와 직접 연결되는 주제입니다. 세금 관련 정보는 개인별 신고 상황과 납부 이력에 따라 결과가 달라질 수 있으므로 단순 검색 결과만 보고 판단하기보다 공식 조회 경로를 함께 확인하는 것이 중요합니다.
+  </p>
+  
+  <p>
+  특히 환급금이나 지방소득세, 종합소득세처럼 금전과 연결되는 내용은 신청 여부, 자동 환급 여부, 지급 예정일, 계좌 정보 확인이 핵심입니다. 같은 제도라도 개인의 소득 신고 내역이나 지자체 처리 일정에 따라 결과가 달라질 수 있습니다.
+  </p>
+  
+  <p>
+  따라서 ${cleanTitle}를 확인할 때는 위택스, 홈택스, 정부24 등 공식 경로를 기준으로 확인하는 것이 안전합니다. 문자나 메신저로 받은 링크를 통해 개인정보나 계좌 정보를 입력하는 것은 피하고, 반드시 공식 도메인을 확인한 뒤 진행해야 합니다.
+  </p>
+  `
+  : isTravelTopic
+  ? `
+  <p>
+  ${cleanTitle}는 위치, 이동 방법, 방문 시기, 사진 포인트, 주변 관광지를 함께 살펴보면 훨씬 더 유용한 여행 주제입니다. 단순히 장소 이름만 소개하는 것보다 실제로 어떻게 가는지, 어느 시간대에 방문하면 좋은지, 어떤 동선으로 둘러보면 좋은지를 함께 정리하는 것이 좋습니다.
+  </p>
+  
+  <p>
+  여행 글을 작성할 때는 독자가 가장 먼저 궁금해하는 정보를 앞쪽에 배치하는 것이 중요합니다. 예를 들어 주차 가능 여부, 대중교통 접근성, 입장료, 소요 시간, 사진 찍기 좋은 구간, 근처에 함께 둘러볼 만한 장소 등이 핵심 정보가 됩니다.
+  </p>
+  
+  <p>
+  따라서 ${cleanTitle}를 소개할 때는 여행지의 분위기와 실제 방문 팁을 함께 담는 것이 좋습니다. 특히 계절별 풍경, 가족 여행 적합성, 걷기 좋은 코스, 주변 맛집이나 관광지 연결성까지 정리하면 체류시간을 높이는 글이 됩니다.
+  </p>
+  `
+  : isRealEstateTopic
+  ? `
+  <p>
+  ${cleanTitle}는 입지, 상권, 유동인구, 임대 수요, 실거래가, 권리관계 등을 함께 살펴봐야 하는 부동산 주제입니다. 단순히 위치만 보고 판단하기보다 주변 도로, 배후 수요, 접근성, 개발 가능성, 공실 위험까지 종합적으로 확인해야 합니다.
+  </p>
+  
+  <p>
+  특히 상가나 토지, 아파트 관련 글은 독자가 투자 판단이나 실거주 판단에 참고할 가능성이 높습니다. 그래서 가격 정보만 나열하기보다 왜 이 입지가 중요한지, 어떤 수요가 있는지, 장점과 리스크가 무엇인지 균형 있게 정리하는 것이 좋습니다.
+  </p>
+  
+  <p>
+  따라서 ${cleanTitle}를 분석할 때는 현장 확인과 공적 장부 확인을 함께 고려해야 합니다. 등기부등본, 건축물대장, 토지이용계획, 실거래가, 임대 시세 등은 실제 판단에 중요한 자료가 될 수 있습니다.
+  </p>
+  `
+  : isSportsTopic
+  ? `
+  <p>
+  ${cleanTitle}는 일정, 개최지, 참가팀, 대표팀 전망, 우승 후보, 관전 포인트를 함께 정리하면 검색 유입에 유리한 스포츠 주제입니다. 스포츠 이슈는 시기성이 강하기 때문에 최신 일정과 공식 발표 내용을 기준으로 구성하는 것이 중요합니다.
+  </p>
+  
+  <p>
+  특히 월드컵이나 올림픽처럼 대형 스포츠 이벤트는 단순한 결과보다 대회 구조, 주요 경기 일정, 대한민국 대표팀 전망, 핵심 선수, 우승 후보 분석까지 함께 다루면 독자의 관심을 오래 유지할 수 있습니다.
+  </p>
+  
+  <p>
+  따라서 ${cleanTitle} 관련 글을 작성할 때는 현재 확정된 정보와 전망성 내용을 구분해서 쓰는 것이 좋습니다. 일정이나 참가팀처럼 바뀔 수 있는 정보는 공식 발표 기준으로 확인해야 하고, 전망은 분석 의견임을 자연스럽게 밝혀주는 것이 좋습니다.
+  </p>
+  `
+  : `
+  <p>
+  ${cleanTitle}는 생활 속에서 자주 검색되는 정보성 주제입니다. 단순히 한 가지 정보만 확인하는 것보다 핵심 개념, 확인 방법, 대상 조건, 주의사항, 참고 링크를 함께 살펴보면 훨씬 이해하기 쉽습니다.
+  </p>
+  
+  <p>
+  정보성 글을 작성할 때는 독자가 가장 궁금해하는 내용을 먼저 정리하는 것이 중요합니다. 누가 확인해야 하는지, 어디에서 확인해야 하는지, 어떤 점을 조심해야 하는지 순서대로 구성하면 글의 만족도가 높아집니다.
+  </p>
+  
+  <p>
+  따라서 ${cleanTitle}를 다룰 때는 최신 정보 여부와 공식 확인 경로를 함께 안내하는 것이 좋습니다. 특히 신청, 조회, 지급, 신고와 관련된 내용은 개인 상황에 따라 결과가 달라질 수 있으므로 참고용 정보와 공식 확인을 구분해야 합니다.
+  </p>
+  `
+  }
     
-    <p>
-    예를 들어 환급금이나 지원금처럼 금전과 관련된 주제라면 본인이 대상자인지, 신청을 해야 하는지, 자동으로 처리되는지, 지급일은 언제인지 확인해야 합니다. 부동산이나 생활 제도와 관련된 주제라면 적용 기준, 지역별 차이, 계약 또는 신고 절차, 관련 기관의 안내가 중요합니다.
-    </p>
-    
-    <p>
-    따라서 ${cleanTitle}를 확인할 때는 블로그 글을 참고하되, 최종 판단은 공식 기관의 안내를 기준으로 하는 것이 안전합니다. 특히 개인정보나 계좌 정보, 인증번호를 입력해야 하는 경우에는 반드시 주소창의 공식 도메인을 확인하는 습관이 필요합니다.
-    </p>
-    
-    <h3 style="background:#f4efe8; padding:10px; border-radius:8px;">2. 핵심 내용 한눈에 정리</h3>
+    <h3 style="background:#f4efe8; padding:10px; border-radius:8px;">
+    ${isTaxTopic
+    ? "2. 조회 방법"
+    : isTravelTopic
+    ? "2. 가는 방법"
+    : isRealEstateTopic
+    ? "2. 상권 분석"
+    : isSportsTopic
+    ? "2. 경기 일정"
+    : "2. 주요 내용"}
+</h3>
     
     <table style="width:100%; border-collapse:collapse; margin:24px 0; font-size:15px;">
       <tbody>
