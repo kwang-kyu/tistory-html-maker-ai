@@ -125,8 +125,64 @@ function App() {
     const cleanTitle = title.trim() || "티스토리 글 제목을 입력하세요";
     const externalLinks = getExternalLinks(cleanTitle);
     const externalLinkHTML = makeExternalLinkHTML(externalLinks);
-    
-    
+    const topicText = cleanTitle.toLowerCase();
+
+const isTaxTopic =
+  topicText.includes("세금") ||
+  topicText.includes("소득세") ||
+  topicText.includes("지방소득세") ||
+  topicText.includes("환급") ||
+  topicText.includes("부가세") ||
+  topicText.includes("종합소득세");
+
+const isTravelTopic =
+  topicText.includes("여행") ||
+  topicText.includes("가볼만한곳") ||
+  topicText.includes("관광") ||
+  topicText.includes("축제") ||
+  topicText.includes("해수욕장") ||
+  topicText.includes("사구") ||
+  topicText.includes("공원");
+
+const isRealEstateTopic =
+  topicText.includes("부동산") ||
+  topicText.includes("아파트") ||
+  topicText.includes("상가") ||
+  topicText.includes("토지") ||
+  topicText.includes("전세") ||
+  topicText.includes("월세") ||
+  topicText.includes("임대차");
+
+const isSportsTopic =
+  topicText.includes("월드컵") ||
+  topicText.includes("축구") ||
+  topicText.includes("야구") ||
+  topicText.includes("올림픽") ||
+  topicText.includes("대표팀") ||
+  topicText.includes("경기") ||
+  topicText.includes("스포츠");
+
+const topicCategory = isTaxTopic
+  ? "세금·환급"
+  : isTravelTopic
+  ? "여행·관광"
+  : isRealEstateTopic
+  ? "부동산"
+  : isSportsTopic
+  ? "스포츠"
+  : "생활정보";
+
+const topicIntro = isTaxTopic
+  ? `${cleanTitle}는 납부 여부, 환급 가능성, 신고 내역, 지급 시기와 연결되는 주제입니다. 특히 세금 관련 정보는 개인별 신고 상황에 따라 결과가 달라질 수 있기 때문에 공식 조회 경로를 함께 확인하는 것이 중요합니다.`
+  : isTravelTopic
+  ? `${cleanTitle}는 여행지의 위치, 이동 방법, 볼거리, 사진 포인트, 방문 시기, 주변 관광지까지 함께 살펴보면 더 유용한 주제입니다. 단순한 장소 소개보다 실제 방문 동선과 체험 포인트를 함께 정리하는 것이 좋습니다.`
+  : isRealEstateTopic
+  ? `${cleanTitle}는 입지, 가격 흐름, 권리관계, 수요, 개발 가능성, 주변 환경을 함께 봐야 하는 주제입니다. 부동산 관련 정보는 현장 확인과 공적 장부 확인이 함께 이루어져야 신뢰도를 높일 수 있습니다.`
+  : isSportsTopic
+  ? `${cleanTitle}는 일정, 개최지, 참가팀, 대표팀 전망, 우승 후보, 관전 포인트를 함께 정리하면 검색 유입에 유리한 주제입니다. 특히 스포츠 이슈는 최신 일정과 공식 발표를 함께 확인하는 것이 중요합니다.`
+  : `${cleanTitle}는 생활 속에서 자주 검색되는 정보성 주제입니다. 핵심 개념, 확인 방법, 주의사항, 참고 링크를 함께 정리하면 독자가 빠르게 이해할 수 있습니다.`;
+
+ 
     if (isTistory) {
       let html = `
     <h2>${cleanTitle}</h2>
@@ -138,7 +194,9 @@ function App() {
     <p>
     이번 글에서는 ${cleanTitle}의 기본 개념부터 확인 방법, 핵심 체크포인트, 주의사항, FAQ, 내부링크 자리, 외부 참고 링크, 이미지 삽입 위치까지 한 번에 정리했습니다.
     </p>
-    
+    <p>
+    이 글의 자동 분류 기준은 <strong>${topicCategory}</strong>입니다. ${topicIntro}
+    </p>
     <figure style="margin:32px 0; text-align:center;">
       <img src="이미지주소를-여기에-넣으세요-1" alt="${cleanTitle} 대표 이미지" style="max-width:100%; border-radius:14px;" />
       <figcaption style="font-size:14px; color:#666; margin-top:8px;">${cleanTitle} 대표 이미지</figcaption>
