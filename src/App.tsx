@@ -232,6 +232,40 @@ const topicCategory = isTaxTopic
   <li>FAQ</li>
 </ol>
 `;
+const topicTableRows = isTaxTopic
+  ? `
+<tr><td style="border:1px solid #ddd; padding:12px;">환급 대상</td><td style="border:1px solid #ddd; padding:12px;">대상 여부 확인</td></tr>
+<tr><td style="border:1px solid #ddd; padding:12px;">조회 방법</td><td style="border:1px solid #ddd; padding:12px;">위택스·홈택스 조회</td></tr>
+<tr><td style="border:1px solid #ddd; padding:12px;">신청 방법</td><td style="border:1px solid #ddd; padding:12px;">온라인 신청 가능</td></tr>
+<tr><td style="border:1px solid #ddd; padding:12px;">지급 시기</td><td style="border:1px solid #ddd; padding:12px;">지자체별 상이</td></tr>
+`
+  : isTravelTopic
+  ? `
+<tr><td style="border:1px solid #ddd; padding:12px;">위치</td><td style="border:1px solid #ddd; padding:12px;">${cleanTitle}</td></tr>
+<tr><td style="border:1px solid #ddd; padding:12px;">주차</td><td style="border:1px solid #ddd; padding:12px;">현장 확인</td></tr>
+<tr><td style="border:1px solid #ddd; padding:12px;">추천 시기</td><td style="border:1px solid #ddd; padding:12px;">계절별 확인</td></tr>
+<tr><td style="border:1px solid #ddd; padding:12px;">사진 명소</td><td style="border:1px solid #ddd; padding:12px;">대표 포인트 확인</td></tr>
+`
+  : isRealEstateTopic
+  ? `
+<tr><td style="border:1px solid #ddd; padding:12px;">입지</td><td style="border:1px solid #ddd; padding:12px;">주변 환경 분석</td></tr>
+<tr><td style="border:1px solid #ddd; padding:12px;">상권</td><td style="border:1px solid #ddd; padding:12px;">유동인구 확인</td></tr>
+<tr><td style="border:1px solid #ddd; padding:12px;">실거래가</td><td style="border:1px solid #ddd; padding:12px;">최근 거래 확인</td></tr>
+<tr><td style="border:1px solid #ddd; padding:12px;">개발 계획</td><td style="border:1px solid #ddd; padding:12px;">도시계획 확인</td></tr>
+`
+  : isSportsTopic
+  ? `
+<tr><td style="border:1px solid #ddd; padding:12px;">일정</td><td style="border:1px solid #ddd; padding:12px;">최신 경기 일정</td></tr>
+<tr><td style="border:1px solid #ddd; padding:12px;">참가팀</td><td style="border:1px solid #ddd; padding:12px;">출전 팀 확인</td></tr>
+<tr><td style="border:1px solid #ddd; padding:12px;">관전 포인트</td><td style="border:1px solid #ddd; padding:12px;">주요 경기 분석</td></tr>
+<tr><td style="border:1px solid #ddd; padding:12px;">우승 후보</td><td style="border:1px solid #ddd; padding:12px;">전력 비교</td></tr>
+`
+  : `
+<tr><td style="border:1px solid #ddd; padding:12px;">주제</td><td style="border:1px solid #ddd; padding:12px;">${cleanTitle}</td></tr>
+<tr><td style="border:1px solid #ddd; padding:12px;">확인 방법</td><td style="border:1px solid #ddd; padding:12px;">공식 사이트 참고</td></tr>
+<tr><td style="border:1px solid #ddd; padding:12px;">주의사항</td><td style="border:1px solid #ddd; padding:12px;">최신 정보 확인</td></tr>
+<tr><td style="border:1px solid #ddd; padding:12px;">FAQ</td><td style="border:1px solid #ddd; padding:12px;">본문 참고</td></tr>
+`;
 const topicIntro = isTaxTopic
   ? `${cleanTitle}는 납부 여부, 환급 가능성, 신고 내역, 지급 시기와 연결되는 주제입니다. 특히 세금 관련 정보는 개인별 신고 상황에 따라 결과가 달라질 수 있기 때문에 공식 조회 경로를 함께 확인하는 것이 중요합니다.`
   : isTravelTopic
@@ -379,26 +413,7 @@ ${
           <th style="border:1px solid #ddd; padding:12px; background:#f8f8f8;">구분</th>
           <th style="border:1px solid #ddd; padding:12px; background:#f8f8f8;">확인할 내용</th>
         </tr>
-        <tr>
-          <td style="border:1px solid #ddd; padding:12px;">주제</td>
-          <td style="border:1px solid #ddd; padding:12px;">${cleanTitle}</td>
-        </tr>
-        <tr>
-          <td style="border:1px solid #ddd; padding:12px;">대상 여부</td>
-          <td style="border:1px solid #ddd; padding:12px;">본인에게 해당되는 조건이 있는지 확인</td>
-        </tr>
-        <tr>
-          <td style="border:1px solid #ddd; padding:12px;">확인 경로</td>
-          <td style="border:1px solid #ddd; padding:12px;">공식 홈페이지, 관할 기관, 고객센터, 안내문</td>
-        </tr>
-        <tr>
-          <td style="border:1px solid #ddd; padding:12px;">필요 정보</td>
-          <td style="border:1px solid #ddd; padding:12px;">본인 인증, 신청 내역, 신고 내역, 계좌 정보, 접수번호 등</td>
-        </tr>
-        <tr>
-          <td style="border:1px solid #ddd; padding:12px;">주의사항</td>
-          <td style="border:1px solid #ddd; padding:12px;">최신 기준 확인, 개인정보 입력 주의, 비공식 링크 주의</td>
-        </tr>
+        ${topicTableRows}
       </tbody>
     </table>
     
