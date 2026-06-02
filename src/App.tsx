@@ -127,151 +127,216 @@ function App() {
     const externalLinkHTML = makeExternalLinkHTML(externalLinks);
     
     
-  if (isTistory) {
-    let html = `
- 
-<figure style="margin:32px 0; text-align:center;">
-  <img src="이미지주소를-여기에-넣으세요-1" alt="${cleanTitle} 대표 이미지" style="max-width:100%; border-radius:14px;" />
-  <figcaption style="font-size:14px; color:#666; margin-top:8px;">${cleanTitle} 관련 대표 이미지</figcaption>
-</figure>
-
-<h3 style="background:#f4efe8; padding:10px; border-radius:8px;">1. ${cleanTitle}를 먼저 이해해야 하는 이유</h3>
-
-<p>
-${cleanTitle}는 단순히 한 가지 정보만 확인한다고 끝나는 주제가 아닐 수 있습니다. 대상 조건, 신청 기간, 처리 일정, 필요 서류, 본인 인증 방식, 기관별 안내 기준 등이 서로 연결되어 있는 경우가 많기 때문입니다. 그래서 처음부터 전체 흐름을 이해하고 접근하면 불필요한 시간을 줄일 수 있습니다.
-</p>
-
-<p>
-예를 들어 환급금이나 지원금처럼 금전과 관련된 주제라면 본인이 대상자인지, 신청을 해야 하는지, 자동으로 처리되는지, 지급일은 언제인지 확인해야 합니다. 부동산이나 생활 제도와 관련된 주제라면 적용 기준, 지역별 차이, 계약 또는 신고 절차, 관련 기관의 안내가 중요합니다.
-</p>
-
-<p>
-따라서 ${cleanTitle}를 확인할 때는 블로그 글을 참고하되, 최종 판단은 공식 기관의 안내를 기준으로 하는 것이 안전합니다. 특히 개인정보나 계좌 정보, 인증번호를 입력해야 하는 경우에는 반드시 주소창의 공식 도메인을 확인하는 습관이 필요합니다.
-</p>
-<div style="background:#fff8dc;padding:12px;margin:20px 0;border-radius:8px;text-align:center;">
-<!-- 애드센스 광고 위치 ② -->
-</div>
-<h3 style="background:#f4efe8; padding:10px; border-radius:8px;">2. 핵심 내용 한눈에 정리</h3>
-
-<table style="width:100%; border-collapse:collapse; margin:24px 0; font-size:15px;">
-  <tbody>
-    <tr>
-      <th style="border:1px solid #ddd; padding:12px; background:#f8f8f8;">구분</th>
-      <th style="border:1px solid #ddd; padding:12px; background:#f8f8f8;">확인할 내용</th>
-    </tr>
-    <tr>
-      <td style="border:1px solid #ddd; padding:12px;">주제</td>
-      <td style="border:1px solid #ddd; padding:12px;">${cleanTitle}</td>
-    </tr>
-    <tr>
-      <td style="border:1px solid #ddd; padding:12px;">대상 여부</td>
-      <td style="border:1px solid #ddd; padding:12px;">본인에게 해당되는 조건이 있는지 확인</td>
-    </tr>
-    <tr>
-      <td style="border:1px solid #ddd; padding:12px;">확인 경로</td>
-      <td style="border:1px solid #ddd; padding:12px;">공식 홈페이지, 관할 기관, 고객센터, 안내문</td>
-    </tr>
-    <tr>
-      <td style="border:1px solid #ddd; padding:12px;">필요 정보</td>
-      <td style="border:1px solid #ddd; padding:12px;">본인 인증, 신청 내역, 신고 내역, 계좌 정보, 접수번호 등</td>
-    </tr>
-    <tr>
-      <td style="border:1px solid #ddd; padding:12px;">주의사항</td>
-      <td style="border:1px solid #ddd; padding:12px;">최신 기준 확인, 개인정보 입력 주의, 비공식 링크 주의</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>
-위 표는 ${cleanTitle}를 확인할 때 기본적으로 살펴보면 좋은 항목입니다. 실제 내용은 주제에 따라 달라질 수 있지만, 대부분의 정보성 글에서는 대상, 방법, 일정, 주의사항, 공식 링크를 함께 정리하면 독자가 이해하기 쉽습니다.
-</p>
-
-<figure style="margin:32px 0; text-align:center;">
-  <img src="이미지주소를-여기에-넣으세요-2" alt="${cleanTitle} 핵심 정리 이미지" style="max-width:100%; border-radius:14px;" />
-  <figcaption style="font-size:14px; color:#666; margin-top:8px;">${cleanTitle} 핵심 내용 정리</figcaption>
-</figure>
-
-<h3 style="background:#f4efe8; padding:10px; border-radius:8px;">3. 확인 방법은 이렇게 진행하면 됩니다</h3>
-
-<p>
-가장 먼저 해야 할 일은 공식 홈페이지 또는 관련 기관 안내 페이지를 확인하는 것입니다. 검색 결과에 나온 글만 보고 판단하면 오래된 기준이나 개인적인 경험담을 최신 정보로 착각할 수 있습니다. 따라서 검색 글은 전체 흐름을 이해하는 용도로 보고, 실제 신청이나 조회는 공식 경로에서 진행하는 것이 좋습니다.
-</p>
-
-<p>
-보통은 본인 인증을 거친 뒤 조회 메뉴에서 결과를 확인하거나, 신청 내역 또는 처리 상태를 확인하는 방식으로 진행됩니다. 만약 신청 기간이 정해져 있는 제도라면 기간 내 접수 여부가 중요하고, 환급이나 지급 관련 내용이라면 계좌 정보와 처리 일정을 함께 확인해야 합니다.
-</p>
-
-<p>
-또한 지역별로 처리 일정이 다르거나, 기관별로 문의 창구가 다른 경우도 있습니다. 이럴 때는 대표 홈페이지에서 기본 정보를 확인한 뒤, 본인의 주소지나 사업장 소재지에 해당하는 관할 기관에 문의하는 것이 더 정확합니다.
-</p>
-
-${externalLinks.length > 0 ? externalLinkHTML : ""}
-
-<h3 style="background:#f4efe8; padding:10px; border-radius:8px;">4. 꼭 알아야 할 주의사항</h3>
-
-<p>
-${cleanTitle}와 관련된 정보를 확인할 때 가장 조심해야 할 부분은 비공식 링크입니다. 문자나 메신저로 받은 링크를 무심코 클릭하면 개인정보 입력 화면으로 연결될 수 있습니다. 특히 주민등록번호, 계좌번호, 카드 정보, 인증번호를 요구하는 페이지라면 반드시 공식 사이트인지 확인해야 합니다.
-</p>
-
-<p>
-또한 신청 조건이나 지급 기준은 해마다 바뀔 수 있습니다. 작년에 가능했던 내용이 올해는 달라질 수 있고, 같은 주제라도 지역이나 소득, 나이, 세대 구성, 신고 내역에 따라 결과가 달라질 수 있습니다. 그러므로 글을 읽고 바로 판단하기보다는 본인 상황을 기준으로 다시 확인하는 과정이 필요합니다.
-</p>
-
-<p>
-블로그 글을 작성하는 입장에서도 이 부분은 중요합니다. 독자가 오해하지 않도록 “최신 정보는 공식 홈페이지를 확인하세요”, “개인별 상황에 따라 결과가 다를 수 있습니다”와 같은 안내문을 넣어주면 글의 신뢰도를 높일 수 있습니다.
-</p>
-
-<figure style="margin:32px 0; text-align:center;">
-  <img src="이미지주소를-여기에-넣으세요-3" alt="${cleanTitle} 주의사항 이미지" style="max-width:100%; border-radius:14px;" />
-  <figcaption style="font-size:14px; color:#666; margin-top:8px;">${cleanTitle} 확인 시 주의사항</figcaption>
-</figure>
-
-<h3 style="background:#f4efe8; padding:10px; border-radius:8px;">5. 이런 분들은 꼭 확인해보세요</h3>
-
-<ul style="line-height:1.9;">
-  <li>${cleanTitle}와 관련된 대상 여부가 궁금한 분</li>
-  <li>신청 방법이나 조회 방법을 한 번에 정리하고 싶은 분</li>
-  <li>공식 링크와 참고 정보를 함께 확인하고 싶은 분</li>
-  <li>비슷한 제도나 관련 글까지 함께 보고 싶은 분</li>
-  <li>처리 일정이나 지급 여부를 놓치고 싶지 않은 분</li>
-</ul>
-
-<p>
-특히 ${cleanTitle}처럼 실생활과 직접 연결되는 주제는 독자가 빠르게 답을 찾고 싶어 하는 경우가 많습니다. 그래서 글을 작성할 때는 어려운 설명보다 “누가 확인해야 하는지”, “어디서 확인해야 하는지”, “무엇을 조심해야 하는지”를 먼저 알려주는 구성이 좋습니다.
-</p>
-
-<div style="margin:40px 0; padding:24px; background:#fff7ed; border-radius:14px; border:1px solid #fed7aa;">
-  <h3 style="margin-top:0;">📌 함께 보면 좋은 글</h3>
-  
-  <ul style="padding-left:20px; line-height:1.9;">
-    <li><a href="내부링크주소-1">관련 글 제목을 여기에 입력하세요</a></li>
-    <li><a href="내부링크주소-2">함께 보면 좋은 글 제목을 여기에 입력하세요</a></li>
-    <li><a href="내부링크주소-3">추가 내부링크 제목을 여기에 입력하세요</a></li>
-  </ul>
-</div>
-
-<h3 style="background:#f4efe8; padding:10px; border-radius:8px;">마무리</h3>
-
-<p>
-지금까지 ${cleanTitle}에 대해 정리했습니다. 핵심은 단순히 정보를 읽는 데서 끝나는 것이 아니라, 본인에게 실제로 해당되는지 공식 경로를 통해 확인하는 것입니다. 특히 신청, 조회, 환급, 지급, 신고와 관련된 내용은 개인별 조건에 따라 결과가 달라질 수 있습니다.
-</p>
-
-<p>
-이 글은 전체적인 이해를 돕기 위한 정보성 글입니다. 실제 신청 조건, 처리 일정, 제출 서류, 지급 여부 등은 관련 기관의 최신 안내를 반드시 확인하시기 바랍니다. 글을 발행하기 전에는 외부 참고 링크와 내부링크 주소를 주제에 맞게 수정한 뒤 사용하는 것을 추천합니다.
-</p>
-<div style="background:#fff8dc;padding:12px;margin:20px 0;border-radius:8px;text-align:center;">
-<!-- 애드센스 광고 위치 ③ -->
-</div>
-
-<div style="margin:40px 0; padding:20px; background:#f1f5f9; border-radius:12px;">
-  <p style="margin:0; color:#555; line-height:1.8;">
-  
-`;
-
-    setHtmlResult(html.trim());
-    return;
-  }
-  
+    if (isTistory) {
+      let html = `
+    <h2>${cleanTitle}</h2>
+    
+    <p>
+    ${cleanTitle}에 대해 검색하는 분들은 대부분 빠르게 핵심 정보를 확인하고 싶어 합니다. 하지만 실제로 찾아보면 짧은 요약만 있거나, 공식 확인 경로와 주의사항이 함께 정리되지 않은 경우가 많습니다.
+    </p>
+    
+    <p>
+    이번 글에서는 ${cleanTitle}의 기본 개념부터 확인 방법, 핵심 체크포인트, 주의사항, FAQ, 내부링크 자리, 외부 참고 링크, 이미지 삽입 위치까지 한 번에 정리했습니다.
+    </p>
+    
+    <figure style="margin:32px 0; text-align:center;">
+      <img src="이미지주소를-여기에-넣으세요-1" alt="${cleanTitle} 대표 이미지" style="max-width:100%; border-radius:14px;" />
+      <figcaption style="font-size:14px; color:#666; margin-top:8px;">${cleanTitle} 대표 이미지</figcaption>
+    </figure>
+    
+    <div style="background:#fff8dc;padding:12px;margin:20px 0;border-radius:8px;text-align:center;">
+    <!-- 애드센스 광고 위치 ① -->
+    </div>
+    
+    <h3 style="background:#f4efe8; padding:10px; border-radius:8px;">목차</h3>
+    <ol style="line-height:1.9;">
+      <li>${cleanTitle}를 먼저 알아야 하는 이유</li>
+      <li>핵심 내용 한눈에 정리</li>
+      <li>확인 방법과 진행 순서</li>
+      <li>놓치기 쉬운 주의사항</li>
+      <li>이런 분들은 꼭 확인하세요</li>
+      <li>자주 묻는 질문 FAQ</li>
+      <li>마무리 및 참고 정보</li>
+    </ol>
+    
+    <h3 style="background:#f4efe8; padding:10px; border-radius:8px;">1. ${cleanTitle}를 먼저 알아야 하는 이유</h3>
+    
+    <p>
+    ${cleanTitle}는 단순히 한 가지 정보만 확인한다고 끝나는 주제가 아닐 수 있습니다. 대상 조건, 신청 기간, 처리 일정, 필요 서류, 본인 인증 방식, 기관별 안내 기준 등이 서로 연결되어 있는 경우가 많기 때문입니다.
+    </p>
+    
+    <p>
+    예를 들어 환급금이나 지원금처럼 금전과 관련된 주제라면 본인이 대상자인지, 신청을 해야 하는지, 자동으로 처리되는지, 지급일은 언제인지 확인해야 합니다. 부동산이나 생활 제도와 관련된 주제라면 적용 기준, 지역별 차이, 계약 또는 신고 절차, 관련 기관의 안내가 중요합니다.
+    </p>
+    
+    <p>
+    따라서 ${cleanTitle}를 확인할 때는 블로그 글을 참고하되, 최종 판단은 공식 기관의 안내를 기준으로 하는 것이 안전합니다. 특히 개인정보나 계좌 정보, 인증번호를 입력해야 하는 경우에는 반드시 주소창의 공식 도메인을 확인하는 습관이 필요합니다.
+    </p>
+    
+    <h3 style="background:#f4efe8; padding:10px; border-radius:8px;">2. 핵심 내용 한눈에 정리</h3>
+    
+    <table style="width:100%; border-collapse:collapse; margin:24px 0; font-size:15px;">
+      <tbody>
+        <tr>
+          <th style="border:1px solid #ddd; padding:12px; background:#f8f8f8;">구분</th>
+          <th style="border:1px solid #ddd; padding:12px; background:#f8f8f8;">확인할 내용</th>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ddd; padding:12px;">주제</td>
+          <td style="border:1px solid #ddd; padding:12px;">${cleanTitle}</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ddd; padding:12px;">대상 여부</td>
+          <td style="border:1px solid #ddd; padding:12px;">본인에게 해당되는 조건이 있는지 확인</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ddd; padding:12px;">확인 경로</td>
+          <td style="border:1px solid #ddd; padding:12px;">공식 홈페이지, 관할 기관, 고객센터, 안내문</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ddd; padding:12px;">필요 정보</td>
+          <td style="border:1px solid #ddd; padding:12px;">본인 인증, 신청 내역, 신고 내역, 계좌 정보, 접수번호 등</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ddd; padding:12px;">주의사항</td>
+          <td style="border:1px solid #ddd; padding:12px;">최신 기준 확인, 개인정보 입력 주의, 비공식 링크 주의</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p>
+    위 표는 ${cleanTitle}를 확인할 때 기본적으로 살펴보면 좋은 항목입니다. 실제 내용은 주제에 따라 달라질 수 있지만, 대부분의 정보성 글에서는 대상, 방법, 일정, 주의사항, 공식 링크를 함께 정리하면 독자가 이해하기 쉽습니다.
+    </p>
+    
+    <figure style="margin:32px 0; text-align:center;">
+      <img src="이미지주소를-여기에-넣으세요-2" alt="${cleanTitle} 핵심 정리 이미지" style="max-width:100%; border-radius:14px;" />
+      <figcaption style="font-size:14px; color:#666; margin-top:8px;">${cleanTitle} 핵심 내용 정리</figcaption>
+    </figure>
+    
+    <div style="background:#fff8dc;padding:12px;margin:20px 0;border-radius:8px;text-align:center;">
+    <!-- 애드센스 광고 위치 ② -->
+    </div>
+    
+    <h3 style="background:#f4efe8; padding:10px; border-radius:8px;">3. 확인 방법과 진행 순서</h3>
+    
+    <p>
+    가장 먼저 해야 할 일은 공식 홈페이지 또는 관련 기관 안내 페이지를 확인하는 것입니다. 검색 결과에 나온 글만 보고 판단하면 오래된 기준이나 개인적인 경험담을 최신 정보로 착각할 수 있습니다.
+    </p>
+    
+    <p>
+    보통은 본인 인증을 거친 뒤 조회 메뉴에서 결과를 확인하거나, 신청 내역 또는 처리 상태를 확인하는 방식으로 진행됩니다. 만약 신청 기간이 정해져 있는 제도라면 기간 내 접수 여부가 중요하고, 환급이나 지급 관련 내용이라면 계좌 정보와 처리 일정을 함께 확인해야 합니다.
+    </p>
+    
+    <p>
+    또한 지역별로 처리 일정이 다르거나 기관별로 문의 창구가 다른 경우도 있습니다. 이럴 때는 대표 홈페이지에서 기본 정보를 확인한 뒤, 본인의 주소지나 사업장 소재지에 해당하는 관할 기관에 문의하는 것이 더 정확합니다.
+    </p>
+    
+    ${externalLinks.length > 0 ? externalLinkHTML : ""}
+    
+    <figure style="margin:32px 0; text-align:center;">
+      <img src="이미지주소를-여기에-넣으세요-3" alt="${cleanTitle} 확인 방법 이미지" style="max-width:100%; border-radius:14px;" />
+      <figcaption style="font-size:14px; color:#666; margin-top:8px;">${cleanTitle} 확인 방법</figcaption>
+    </figure>
+    
+    <h3 style="background:#f4efe8; padding:10px; border-radius:8px;">4. 놓치기 쉬운 주의사항</h3>
+    
+    <p>
+    ${cleanTitle}와 관련된 정보를 확인할 때 가장 조심해야 할 부분은 비공식 링크입니다. 문자나 메신저로 받은 링크를 무심코 클릭하면 개인정보 입력 화면으로 연결될 수 있습니다.
+    </p>
+    
+    <p>
+    또한 신청 조건이나 지급 기준은 해마다 바뀔 수 있습니다. 작년에 가능했던 내용이 올해는 달라질 수 있고, 같은 주제라도 지역이나 소득, 나이, 세대 구성, 신고 내역에 따라 결과가 달라질 수 있습니다.
+    </p>
+    
+    <p>
+    블로그 글을 작성하는 입장에서도 이 부분은 중요합니다. 독자가 오해하지 않도록 “최신 정보는 공식 홈페이지를 확인하세요”, “개인별 상황에 따라 결과가 다를 수 있습니다”와 같은 안내문을 넣어주면 글의 신뢰도를 높일 수 있습니다.
+    </p>
+    
+    <figure style="margin:32px 0; text-align:center;">
+      <img src="이미지주소를-여기에-넣으세요-4" alt="${cleanTitle} 주의사항 이미지" style="max-width:100%; border-radius:14px;" />
+      <figcaption style="font-size:14px; color:#666; margin-top:8px;">${cleanTitle} 확인 시 주의사항</figcaption>
+    </figure>
+    
+    <h3 style="background:#f4efe8; padding:10px; border-radius:8px;">5. 이런 분들은 꼭 확인하세요</h3>
+    
+    <ul style="line-height:1.9;">
+      <li>${cleanTitle}와 관련된 대상 여부가 궁금한 분</li>
+      <li>신청 방법이나 조회 방법을 한 번에 정리하고 싶은 분</li>
+      <li>공식 링크와 참고 정보를 함께 확인하고 싶은 분</li>
+      <li>비슷한 제도나 관련 글까지 함께 보고 싶은 분</li>
+      <li>처리 일정이나 지급 여부를 놓치고 싶지 않은 분</li>
+    </ul>
+    
+    <p>
+    특히 ${cleanTitle}처럼 실생활과 직접 연결되는 주제는 독자가 빠르게 답을 찾고 싶어 하는 경우가 많습니다. 그래서 글을 작성할 때는 어려운 설명보다 “누가 확인해야 하는지”, “어디서 확인해야 하는지”, “무엇을 조심해야 하는지”를 먼저 알려주는 구성이 좋습니다.
+    </p>
+    
+    <div style="margin:40px 0; padding:24px; background:#fff7ed; border-radius:14px; border:1px solid #fed7aa;">
+      <h3 style="margin-top:0;">📌 함께 보면 좋은 글</h3>
+      <ul style="padding-left:20px; line-height:1.9;">
+        <li><a href="내부링크주소-1">${cleanTitle} 신청 방법 자세히 보기</a></li>
+        <li><a href="내부링크주소-2">${cleanTitle} 대상자 확인 방법</a></li>
+        <li><a href="내부링크주소-3">${cleanTitle} 주의사항과 최신 정보</a></li>
+      </ul>
+    </div>
+    
+    <h3 style="background:#f4efe8; padding:10px; border-radius:8px;">6. 자주 묻는 질문 FAQ</h3>
+    
+    <p><strong>Q. ${cleanTitle}는 어디서 확인하나요?</strong></p>
+    <p>
+    A. 관련 기관 공식 홈페이지나 공공기관 안내 페이지에서 확인하는 것이 가장 정확합니다. 블로그 글은 전체 흐름을 이해하는 참고 자료로 활용하는 것이 좋습니다.
+    </p>
+    
+    <p><strong>Q. 신청 조건은 모두 같은가요?</strong></p>
+    <p>
+    A. 아닙니다. 개인 상황, 지역, 소득, 나이, 신청 기간, 제출 서류 등에 따라 달라질 수 있습니다. 반드시 본인의 조건을 기준으로 다시 확인해야 합니다.
+    </p>
+    
+    <p><strong>Q. 오래된 글을 참고해도 괜찮나요?</strong></p>
+    <p>
+    A. 오래된 글은 현재 기준과 다를 수 있습니다. 특히 지급일, 환급일, 신청 기간, 제출 서류, 대상 조건은 변경될 수 있으므로 최신 공지를 확인해야 합니다.
+    </p>
+    
+    <figure style="margin:32px 0; text-align:center;">
+      <img src="이미지주소를-여기에-넣으세요-5" alt="${cleanTitle} FAQ 이미지" style="max-width:100%; border-radius:14px;" />
+      <figcaption style="font-size:14px; color:#666; margin-top:8px;">${cleanTitle} 자주 묻는 질문</figcaption>
+    </figure>
+    
+    <h3 style="background:#f4efe8; padding:10px; border-radius:8px;">마무리</h3>
+    
+    <p>
+    지금까지 ${cleanTitle}에 대해 정리했습니다. 핵심은 단순히 정보를 읽는 데서 끝나는 것이 아니라, 본인에게 실제로 해당되는지 공식 경로를 통해 확인하는 것입니다.
+    </p>
+    
+    <p>
+    이 글은 전체적인 이해를 돕기 위한 정보성 글입니다. 실제 신청 조건, 처리 일정, 제출 서류, 지급 여부 등은 관련 기관의 최신 안내를 반드시 확인하시기 바랍니다. 글을 발행하기 전에는 외부 참고 링크와 내부링크 주소를 주제에 맞게 수정한 뒤 사용하는 것을 추천합니다.
+    </p>
+    
+    <div style="background:#fff8dc;padding:12px;margin:20px 0;border-radius:8px;text-align:center;">
+    <!-- 애드센스 광고 위치 ③ -->
+    </div>
+    
+    <div style="margin:40px 0; padding:20px; background:#f1f5f9; border-radius:12px;">
+      <h3 style="margin-top:0;">검색 설명</h3>
+      <p style="line-height:1.8;">
+        ${cleanTitle} 핵심 정보, 확인 방법, 대상 조건, 주의사항, 공식 참고 링크와 FAQ를 한 번에 정리한 정보성 가이드입니다.
+      </p>
+    
+      <h3>추천 태그</h3>
+      <p style="line-height:1.8;">
+        ${cleanTitle}, ${cleanTitle} 확인, ${cleanTitle} 방법, ${cleanTitle} 대상자, ${cleanTitle} 신청, 생활정보, 정부지원, 애드센스
+      </p>
+    
+      <h3>이미지 프롬프트</h3>
+      <p style="line-height:1.8;">
+        ${cleanTitle} concept, realistic korean lifestyle blog image, clean composition, professional informational blog thumbnail, bright natural light, high quality, 16:9
+      </p>
+    </div>
+    `;
+    
+      setHtmlResult(html.trim());
+      return;
+    }
   if (isWordpress) {
     const wordpressHtml = `
   <h2>${cleanTitle}</h2>
