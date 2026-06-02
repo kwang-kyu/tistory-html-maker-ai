@@ -353,6 +353,24 @@ const selectedFaqs =
     : isSportsTopic
     ? topicFaqs.sports
     : topicFaqs.life;
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: selectedFaqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    };
+    
+    const faqSchemaHtml = `
+    <script type="application/ld+json">
+    ${JSON.stringify(faqSchema, null, 2)}
+    </script>
+    `;   
 const topicIntro = isTaxTopic
   ? `${cleanTitle}는 납부 여부, 환급 가능성, 신고 내역, 지급 시기와 연결되는 주제입니다. 특히 세금 관련 정보는 개인별 신고 상황에 따라 결과가 달라질 수 있기 때문에 공식 조회 경로를 함께 확인하는 것이 중요합니다.`
   : isTravelTopic
@@ -782,6 +800,7 @@ ${
 `
   )
   .join("")}
+${faqSchemaHtml}  
   <h3>마무리</h3>
   <p>
   지금까지 ${cleanTitle}에 대해 정리했습니다. 핵심은 검색 결과만 보고 판단하지 말고, 본인에게 실제로 해당되는지 공식 경로를 통해 확인하는 것입니다.
