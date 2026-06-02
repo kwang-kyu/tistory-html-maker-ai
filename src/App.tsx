@@ -772,7 +772,16 @@ ${
   <p>
   ${cleanTitle}, ${cleanTitle} 정보, ${cleanTitle} 확인, ${cleanTitle} 방법, 워드프레스 SEO, 검색엔진최적화, 생활정보, 정부지원
   </p>
-  
+  <h3>자주 묻는 질문</h3>
+
+  ${selectedFaqs
+  .map(
+    (faq) => `
+  <p><strong>Q. ${faq.question}</strong><br/>
+  A. ${faq.answer}</p>
+`
+  )
+  .join("")}
   <h3>마무리</h3>
   <p>
   지금까지 ${cleanTitle}에 대해 정리했습니다. 핵심은 검색 결과만 보고 판단하지 말고, 본인에게 실제로 해당되는지 공식 경로를 통해 확인하는 것입니다.
@@ -918,7 +927,16 @@ ${
   <p>
   ${cleanTitle}, 생활정보, 정부지원, 신청방법, 확인방법, 구글노출, 블로거
   </p>
-  
+  <h3>자주 묻는 질문</h3>
+
+${selectedFaqs
+  .map(
+    (faq) => `
+<p><strong>Q. ${faq.question}</strong><br/>
+A. ${faq.answer}</p>
+`
+  )
+  .join("")}
   <h3>마무리</h3>
   <p>
   지금까지 ${cleanTitle}에 대해 정리했습니다. 핵심은 검색 결과만 보고 판단하지 말고, 본인에게 실제로 해당되는지 공식 경로를 통해 확인하는 것입니다.
@@ -1050,7 +1068,16 @@ ${
     <p>
     ${cleanTitle}와 관련해 궁금한 점이나 직접 확인하면서 헷갈렸던 부분이 있다면 댓글로 남겨주세요. 비슷한 주제로 추가 정리 글을 작성할 때 참고하겠습니다.
     </p>
-    
+    <h3>자주 묻는 질문</h3>
+
+   ${selectedFaqs
+  .map(
+    (faq) => `
+   <p><strong>Q. ${faq.question}</strong><br/>
+   A. ${faq.answer}</p>
+  `
+  )
+  .join("")}
     <h3>마무리</h3>
     <p>
     지금까지 ${cleanTitle}에 대해 정리했습니다. 핵심은 정보를 빠르게 읽는 것보다, 본인에게 실제로 해당되는지 정확히 확인하는 것입니다.
